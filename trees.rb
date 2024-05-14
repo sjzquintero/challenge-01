@@ -8,15 +8,15 @@ uri = URI(url)
 response = Net::HTTP.get(uri)
 city_trees = JSON.parse(response) # Convert JSON data into Ruby data.
 
-#trees.each do |tree|
-#pp "Tree ID: #{tree['tree_id']}, Common Name: #{tree['common_name']}"
-#end
+trees.each do |tree|
+pp "Tree ID: #{tree['tree_id']}, Common Name: #{tree['common_name']}"
+end
 
 ash_count = 0
 
 city_trees.each do |tree|
         # Check if the common name contains "ash" as a whole word
-        if tree['common_name'] =~ /\bAsh\b/i
+        if tree['common_name'] =~ /\bAsh\b/i #reGex
           ash_count += 1
         end
       end
